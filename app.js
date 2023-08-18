@@ -18,3 +18,7 @@ app.get('/', function(req, res) {
 app.listen(9000, function() {
     console.log("Listening on port 9000 ...")
 });
+
+const {connect} = require("mongoose")
+const config = require("./config.json")
+connect(config.dbURL, {}).then(() => console.log("Connected to the database"))
