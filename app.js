@@ -18,12 +18,13 @@ connect(config.dbURL, {}).then(() => console.log("Connected to the database"));
 const UserInformationSchema = require("./Schemas/UserInformations");
 
 var notexist = ""
+var UserName = ""
 
 app.get('/', function(req, res) {
     res.render(__dirname + 'main.html')
 });
 
-app.post('/main-connected', async function (req, res) {
+app.post('/Home-connected', async function (req, res) {
     const {username, password} = req.body;
     let User = await UserInformationSchema.findOne({
         Username : `${username}`,
@@ -31,7 +32,8 @@ app.post('/main-connected', async function (req, res) {
     })
     console.log(User)
     if(User) {
-        res.render(__dirname +"/Code_site/html/main_connected.html", {username: username})
+        UserName = username
+        res.render(__dirname +"/Code_site/html/main_connected.html", {username: UserName})
     } else {
         notexist = "This account doesn't esxist !";
         res.render(__dirname +"/Code_site/html/registered.html", {notexist: notexist})
@@ -64,6 +66,18 @@ app.post('/inscription-page', async function (req, res) {
         notexist = "Email is already in use !"
             res.render(__dirname +"/Code_site/html/registered.html", {notexist: notexist})
     }
+})
+
+app.post('/Home', async function(req, res) {
+    res.render(__dirname + "/Code_site/html/main_connected.html", {username: UserName})
+})
+
+app.post('/Portfolios', async function(req, res) {
+    res.render(__dirname + "/Code_site/html/portfolios.html", {username: UserName})
+})
+
+app.post('/Contact', async function(req, res) {
+    res.render(__dirname + "/Code_site/html/contact_main.html", {username: UserName})
 })
 
 app.listen(9000, function() {

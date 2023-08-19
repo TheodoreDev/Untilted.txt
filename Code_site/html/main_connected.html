@@ -11,12 +11,12 @@
     <header>
         <nav class="navbar">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#" class="a active">Home</a></li>
+                <li><form class="a" action="/Portfolios" method="POST"><button type="submit">Portfolios</button></form></li>
+                <li><form class="a" action="/Contact" method="POST"><button type="submit">Contact</button></form></li>
                 <div class="login">
                     <img src="icons8-utilisateur-50.png" class="profil_img">
-                    <p><a href="#" id="username"><%= username %></a></p>
+                    <p><a href="#" id="username" class="a"><%= username %></a></p>
                 </div>
             </ul>
         </nav>

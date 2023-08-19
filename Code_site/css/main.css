@@ -33,7 +33,7 @@ header nav li {
     float: left;
 }
 
-header nav li a{
+header nav li .a{
     color: #fff;
     text-decoration: none;
     display: block;
@@ -43,7 +43,36 @@ header nav li a{
     border-top: solid 3px rgb(255, 255, 255);
 }
 
-header nav li a:hover {
+header nav li .a:hover {
+    background-color: rgb(63, 63, 63);
+    cursor: pointer;
+}
+
+.a button {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-family: 'Silkscreen', cursive;
+    font-size: 15px;
+    font-weight: 100;
+    border: none;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+.a:hover button {
+    background-color: rgb(63, 63, 63);
+    cursor: pointer;
+}
+
+.active {
+    background-color: rgb(63, 63, 63);
+}
+
+.active button {
     background-color: rgb(63, 63, 63);
 }
 
@@ -73,7 +102,7 @@ header nav li a:hover {
     text-decoration: none;
 }
 
-.login a {
+.login .a {
     text-decoration: none;
     color: black;
 }
